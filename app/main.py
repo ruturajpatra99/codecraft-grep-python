@@ -44,7 +44,7 @@ def match_pattern(input_line, pattern):
     
     elif pattern.endswith("$"):
         pattern = pattern[:-1]  # Remove the $ from the pattern
-        if input_line.endswith(pattern):
+        if input_line==pattern:
             return True  # Return True if it matches
         else:
             return False  # Return False if it doesn't match
