@@ -43,7 +43,8 @@ def match_pattern(input_line, pattern):
         else: return False
     
     elif pattern[-1] == "$":
-        if input_line[-1]==pattern[-2]:
+        l = len(pattern[:-1])
+        if input_line[-l:]==pattern[:-1]:
             return True
         else: return False
     
