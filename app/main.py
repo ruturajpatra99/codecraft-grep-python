@@ -37,6 +37,10 @@ def match_pattern(input_line, pattern):
             return not any(char in pattern[1:-1] for char in input_line)
         else: return any(char in pattern[1:-1] for char in input_line)
     
+    elif pattern[0]=="^":
+        if pattern[1]==input_line[0]:
+            return True
+        else: return False
     
     
     else:
