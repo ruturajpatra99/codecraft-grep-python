@@ -23,7 +23,7 @@ def match_pattern(input_line, pattern):
     elif pattern[:2] == Pattern.DIGIT:
         for i in range(len(input_line)):
             if input_line[i].isdigit():
-                return match_pattern(input_line[i:], pattern[2:])
+                return match_pattern(input_line[i:], pattern[1:])
         else:
             return False
     elif pattern[:2] == Pattern.ALNUM:
