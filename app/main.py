@@ -43,11 +43,11 @@ def match_pattern(input_line, pattern):
         else: return False
     
     elif pattern.endswith("$"):
-        pattern=pattern[:-1]
-        
+        pattern = pattern[:-1]  # Remove the $ from the pattern
         if input_line.endswith(pattern):
-            return True
-        else: return False
+            return True  # Return True if it matches
+        else:
+            return False  # Return False if it doesn't match
         
     
     else:
