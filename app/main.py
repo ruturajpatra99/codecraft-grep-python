@@ -49,7 +49,7 @@ def match_pattern(input_line, pattern):
         return False
     
     else:
-        # return match_pattern(input_line[1:], pattern)
+        return match_pattern(input_line[1:], pattern)
     
 
 
