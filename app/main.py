@@ -11,9 +11,9 @@ class Pattern:
 def match_pattern(input_line, pattern):
     if len(pattern) == 1:
         return pattern in input_line
-    elif pattern == Pattern.DIGIT:
+    elif pattern == "\d":
         return any(char.isdigit() for char in input_line)
-    elif pattern == Pattern.ALNUM:
+    elif pattern == "\w":
         return any(char.isalnum() for char in input_line)
     elif pattern[0] == "[" and pattern[-1]=="]":
         if pattern[1]=="^":
@@ -29,13 +29,13 @@ def match_pattern(input_line, pattern):
     
     if pattern[0]==input_line[0]:
         return match_pattern(input_line[1:], pattern[1:])
-    elif pattern[:2] == Pattern.DIGIT:
+    elif pattern[:2] == "\d":
         for i in range(len(input_line)):
             if input_line[i].isdigit():
                 return match_pattern(input_line[i:], pattern[2:])
             else:
                 return False
-    elif pattern[:2] == Pattern.ALNUM:
+    elif pattern[:2] == "\w":
         if input_line[0].isalnum():
             return match_pattern(input_line[1:], pattern[2:])
         else:
