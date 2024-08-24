@@ -12,9 +12,9 @@ def match_pattern(input_line, pattern):
     if len(pattern) == 1:
         return pattern in input_line
     elif pattern == Pattern.DIGIT:
-        return any(char.isDIGIT() for char in input_line)
+        return any(char.isdigit() for char in input_line)
     elif pattern == Pattern.ALNUM:
-        return any(char.isALNUM() for char in input_line)
+        return any(char.isalnum() for char in input_line)
     elif pattern[0] == "[" and pattern[-1]=="]":
         if pattern[1]=="^":
             return not any(char in pattern[1:-1] for char in input_line)
@@ -31,12 +31,12 @@ def match_pattern(input_line, pattern):
         return match_pattern(input_line[1:], pattern[1:])
     elif pattern[:2] == Pattern.DIGIT:
         for i in range(len(input_line)):
-            if input_line[i].isDIGIT():
+            if input_line[i].isdigit():
                 return match_pattern(input_line[i:], pattern[2:])
             else:
                 return False
     elif pattern[:2] == Pattern.ALNUM:
-        if input_line[0].isALNUM():
+        if input_line[0].isalnum():
             return match_pattern(input_line[1:], pattern[2:])
         else:
             return False
