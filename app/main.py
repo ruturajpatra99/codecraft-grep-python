@@ -12,9 +12,10 @@ def match_pattern(input_line, pattern):
     elif pattern == "\w":
         return input_line.isalnum()
     elif pattern[0] == "[" and pattern[-1]=="]":
-        return any(char in pattern[1:-1] for char in input_line)
-    elif pattern[0] == "[" and pattern[-1]=="]" and pattern[1]=="^":
-        return any(char not in pattern[1:-1] for char in input_line)
+        if pattern[1]=="^":
+            return not any(char in pattern[1:-1] for char in input_line)
+        else: return any(char in pattern[1:-1] for char in input_line)
+    
     else:
         raise RuntimeError(f"Unhandled pattern: {pattern}")
 
