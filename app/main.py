@@ -42,10 +42,10 @@ def match_pattern(input_line, pattern):
             return True
         else: return False
     
-    elif pattern[-1] == "$":
+    elif pattern.endswith("$"):
         pattern=pattern[:-1]
-        l = len(pattern)
-        if input_line[-l:]==pattern:
+        
+        if input_line.endswith(pattern):
             return True
         else: return False
         
