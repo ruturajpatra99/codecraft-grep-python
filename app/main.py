@@ -2,8 +2,8 @@ import sys
 # import pyparsing - available if you need it!
 # import lark - available if you need it!
 class Pattern:
-    DIGIT = "\d"
-    ALNUM = "\w"
+    DIGIT = r"\d"
+    ALNUM = r"\w"
 # def combined_patterns(input_line, pattern):
 def match_pattern(input_line, pattern):
     if len(pattern) == 1:
