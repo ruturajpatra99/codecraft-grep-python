@@ -7,6 +7,8 @@ import sys
 def match_pattern(input_line, pattern):
     if len(pattern) == 1:
         return pattern in input_line
+    elif pattern == "\d":
+        return input_line.isnumeric()
     else:
         raise RuntimeError(f"Unhandled pattern: {pattern}")
 
