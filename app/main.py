@@ -42,12 +42,11 @@ def match_pattern(input_line, pattern):
             return True
         else: return False
     
-    elif pattern[-1]=="$":
-        pattern = pattern[:-1]  # Remove the $ from the pattern
-        if input_line==pattern:
-            return False  # Return True if it matches
-        else: return True
-        
+    elif pattern[-1] == "$":
+        l = len(pattern[:-1])
+        if input_line[-l:] == pattern[:-1]:
+            return True
+        return False
     
     else:
         return match_pattern(input_line[1:], pattern)
