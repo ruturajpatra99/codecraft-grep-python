@@ -42,7 +42,7 @@ def match_pattern(input_line, pattern):
             return True
         else: return False
     
-    elif pattern.endswith("$"):
+    elif pattern[-1]=="$":
         pattern = pattern[:-1]  # Remove the $ from the pattern
         if input_line==pattern:
             return True  # Return True if it matches
