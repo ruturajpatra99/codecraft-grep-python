@@ -72,6 +72,13 @@ def match_pattern(input_line, pattern):
             if c in input_line:
                 return True
         return False
+    
+    elif pattern[0] == "(" and pattern[-1] == ")":
+        first, second = pattern[1:pattern.index(")")].split("|")
+        if first==input_line or second==input_line:
+            return True
+        return False
+
     else:
         return match_pattern(input_line[1:], pattern)
 def main():
